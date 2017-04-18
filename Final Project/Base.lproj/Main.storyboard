@@ -66,6 +66,9 @@
                                 <state key="normal" title="Purchase License">
                                     <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="2wH-cV-Qda" kind="show" id="THR-AG-D8V"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1y-oK-L8w">
                                 <rect key="frame" x="108" y="359" width="150" height="54"/>
@@ -76,6 +79,9 @@
                                 <state key="normal" title="My Info">
                                     <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="3Oo-Vc-gXA" kind="show" id="7sr-Ne-mYG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plA-0F-gDS">
                                 <rect key="frame" x="108" y="532" width="150" height="54"/>
@@ -86,6 +92,9 @@
                                 <state key="normal" title="History">
                                     <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="XE9-S4-Rge" kind="show" id="d3R-lp-Jec"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBJ-SX-gdN">
                                 <rect key="frame" x="108" y="199" width="150" height="54"/>
@@ -96,6 +105,9 @@
                                 <state key="normal" title="Deer Registration">
                                     <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="lRr-6C-mJa" kind="show" id="dNO-r4-QH2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
