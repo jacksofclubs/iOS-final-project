@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Registration View Controller-->
         <scene sceneID="vRY-b6-4a7">
             <objects>
-                <tableViewController id="uLx-yi-Hjt" sceneMemberID="viewController">
+                <tableViewController id="uLx-yi-Hjt" customClass="RegistrationViewController" customModule="Final_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Bzu-XQ-ci8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="-451" y="581"/>
         </scene>
-        <!--View Controller-->
+        <!--Info View Controller-->
         <scene sceneID="Xqc-94-Cs4">
             <objects>
-                <viewController id="3Oo-Vc-gXA" sceneMemberID="viewController">
+                <viewController id="3Oo-Vc-gXA" customClass="InfoViewController" customModule="Final_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZS2-Y9-ybh"/>
                         <viewControllerLayoutGuide type="bottom" id="dFe-cl-i5o"/>
@@ -254,10 +254,10 @@
             </objects>
             <point key="canvasLocation" x="576.81159420289862" y="-189.13043478260872"/>
         </scene>
-        <!--View Controller-->
+        <!--History View Controller-->
         <scene sceneID="CsB-gr-lZq">
             <objects>
-                <viewController id="XE9-S4-Rge" sceneMemberID="viewController">
+                <viewController id="XE9-S4-Rge" customClass="HistoryViewController" customModule="Final_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JI2-3Y-jWj"/>
                         <viewControllerLayoutGuide type="bottom" id="9bT-TF-gZp"/>
@@ -281,10 +281,10 @@
             </objects>
             <point key="canvasLocation" x="1590" y="582"/>
         </scene>
-        <!--Table View Controller-->
+        <!--License View Controller-->
         <scene sceneID="auA-o2-YZf">
             <objects>
-                <tableViewController id="mFH-dT-AEp" sceneMemberID="viewController">
+                <tableViewController id="mFH-dT-AEp" customClass="LicenseViewController" customModule="Final_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EvE-zT-2hL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
