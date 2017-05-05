@@ -29,14 +29,35 @@ class RegistrationViewController: UITableViewController {
     }
 
     @IBAction func submit_registration(_ sender: UIButton) {
-        let controller2 = UIAlertController(
-            title:"Deer Registration Complete",
-            message: "Exit", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Phew!",
-                                         style: .cancel, handler: nil)
-        controller2.addAction(cancelAction)
-        self.present(controller2, animated: true,
-                     completion: nil)
+        let controller = UIAlertController(title: "Are you sure you want to submit?",
+                                           message:nil, preferredStyle: .actionSheet)
+        
+        let yesAction = UIAlertAction(title: "Yes, I'm ready!",
+                                      style: .destructive, handler: { action in
+                                        let msg = "It is now safe to exit"
+                                        let controller2 = UIAlertController(
+                                            title:"Deer registration complete!",
+                                            message: msg, preferredStyle: .alert)
+                                        let cancelAction = UIAlertAction(title: "Great!",
+                                                                         style: .cancel, handler: nil)
+                                        controller2.addAction(cancelAction)
+                                        self.present(controller2, animated: true,
+                                                     completion: nil)
+        })
+        
+        let noAction = UIAlertAction(title: "No, not yet!",
+                                     style: .cancel, handler: nil)
+        
+        controller.addAction(yesAction)
+        controller.addAction(noAction)
+        
+        if let ppc = controller.popoverPresentationController {
+            ppc.sourceView = sender
+            ppc.sourceRect = sender.bounds
+            ppc.permittedArrowDirections = .down
+        }
+        
+        present(controller, animated: true, completion: nil)
     }
     
     // MARK: - Table view data source
