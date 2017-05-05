@@ -52,6 +52,10 @@
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="heT-98-sFT">
                                                     <rect key="frame" x="0.0" y="-87" width="414" height="216"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="uLx-yi-Hjt" id="VoI-5j-afk"/>
+                                                        <outlet property="delegate" destination="uLx-yi-Hjt" id="Cb2-0D-Vhc"/>
+                                                    </connections>
                                                 </pickerView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -132,6 +136,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="method_of_kill_picker" destination="heT-98-sFT" id="nKJ-gI-o5a"/>
                         <outlet property="submit_button" destination="Agk-Al-cLd" id="UWz-hD-rrT"/>
                     </connections>
                 </tableViewController>

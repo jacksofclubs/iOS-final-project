@@ -8,10 +8,16 @@
 
 import UIKit
 
-class RegistrationViewController: UITableViewController {
+class RegistrationViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // Outlet variable for submit button
     @IBOutlet weak var submit_button: UIButton!
+    // Outlet variable for method of kill picker
+    @IBOutlet weak var method_of_kill_picker: UIPickerView!
+    // Data source for method of kill picker
+    private let method_of_kill = [
+        "Firearm", "Bow", "Muzzleloader", "Crossbow"
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +35,19 @@ class RegistrationViewController: UITableViewController {
     }
 
     @IBAction func submit_registration(_ sender: UIButton) {
+        // method of kill picker
+        let row = method_of_kill_picker.selectedRow(inComponent: 0)
+        let selected = method_of_kill[row]
+        let msg = "Method of kill: \(selected)"
+        
+        
+        // Begin alert messages
         let controller = UIAlertController(title: "Are you sure you want to submit?",
                                            message:nil, preferredStyle: .actionSheet)
         
         let yesAction = UIAlertAction(title: "Yes, I'm ready!",
                                       style: .destructive, handler: { action in
-                                        let msg = "It is now safe to exit"
+                                        //let msg = "It is now safe to exit"
                                         let controller2 = UIAlertController(
                                             title:"Deer registration complete!",
                                             message: msg, preferredStyle: .alert)
@@ -58,6 +71,7 @@ class RegistrationViewController: UITableViewController {
         }
         
         present(controller, animated: true, completion: nil)
+        // End alert messages
     }
     
     // MARK: - Table view data source
@@ -126,5 +140,21 @@ class RegistrationViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK:-
+    // MARK: Picker Data Source Methods
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int {
+        return method_of_kill.count
+    }
+    
+    // MARK: Picker Delegate Methods
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return method_of_kill[row]
+    }
 
 }
