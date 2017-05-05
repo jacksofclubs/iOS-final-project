@@ -49,14 +49,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="heT-98-sFT">
-                                                    <rect key="frame" x="0.0" y="-87" width="414" height="216"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="uLx-yi-Hjt" id="VoI-5j-afk"/>
-                                                        <outlet property="delegate" destination="uLx-yi-Hjt" id="Cb2-0D-Vhc"/>
-                                                    </connections>
-                                                </pickerView>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QQ6-EZ-hv2">
+                                                    <rect key="frame" x="14" y="8" width="387" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="Firearm"/>
+                                                        <segment title="Bow"/>
+                                                        <segment title="Muzzleloader"/>
+                                                        <segment title="Crossbow"/>
+                                                    </segments>
+                                                </segmentedControl>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -141,7 +143,6 @@
                     </tableView>
                     <connections>
                         <outlet property="county_picker" destination="ALD-LN-GLY" id="oq5-I0-0jy"/>
-                        <outlet property="method_of_kill_picker" destination="heT-98-sFT" id="nKJ-gI-o5a"/>
                         <outlet property="submit_button" destination="Agk-Al-cLd" id="UWz-hD-rrT"/>
                     </connections>
                 </tableViewController>

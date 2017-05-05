@@ -12,12 +12,15 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
 
     // Outlet variable for submit button
     @IBOutlet weak var submit_button: UIButton!
+    // Set up picker components
+//    private let method_of_kill_component = 0
+//    private let counties_component = 1
     // Outlet variable for method of kill picker
-    @IBOutlet weak var method_of_kill_picker: UIPickerView!
+//    @IBOutlet weak var method_of_kill_picker: UIPickerView!
     // Data source for method of kill picker
-    private let method_of_kill = [
-        "Firearm", "Bow", "Muzzleloader", "Crossbow"
-    ]
+//    private let method_of_kill = [
+//        "Firearm", "Bow", "Muzzleloader", "Crossbow"
+//    ]
     
     // Variables for counties in picker
     @IBOutlet weak var county_picker: UIPickerView!
@@ -46,14 +49,14 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
 
     @IBAction func submit_registration(_ sender: UIButton) {
         // method of kill picker
-        //let row = method_of_kill_picker.selectedRow(inComponent: 0)
-        //let selected = method_of_kill[row]
+//        let row = method_of_kill_picker.selectedRow(inComponent: method_of_kill_component)
+//        let selected = method_of_kill[row]
         //let msg = "Method of kill: \(selected)"
         
         // County information
         let countyRow = county_picker.selectedRow(inComponent: 0)
         let selected_county = counties_d[countyRow]
-        let msg = " blah \(selected_county)"
+        let msg = "You selected \(selected_county) county"
         
         
         
@@ -164,20 +167,20 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
     }
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
-        if component == 0 {
+//        if component == 0 {
+//            return method_of_kill.count
+//        } else {
             return counties_d.count
-        } else {
-            return counties_d.count
-        }
+//        }
     }
     
     // MARK: Picker Delegate Methods
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if component == 0 {
+//        if component == 0 {
+//            return method_of_kill[row]
+//        } else {
             return counties_d[row]
-        } else {
-            return counties_d[row]
-        }
+//        }
     }
 
 }
