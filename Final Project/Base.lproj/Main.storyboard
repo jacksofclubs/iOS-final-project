@@ -119,6 +119,9 @@
                                                     <rect key="frame" x="183" y="7" width="49" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Submit"/>
+                                                    <connections>
+                                                        <action selector="submit_registration:" destination="uLx-yi-Hjt" eventType="touchUpInside" id="elt-jd-FZM"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -131,6 +134,9 @@
                             <outlet property="delegate" destination="uLx-yi-Hjt" id="2Bt-PW-Pjt"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="submit_button" destination="Agk-Al-cLd" id="UWz-hD-rrT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELj-f9-OQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

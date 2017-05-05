@@ -10,6 +10,9 @@ import UIKit
 
 class RegistrationViewController: UITableViewController {
 
+    // Outlet variable for submit button
+    @IBOutlet weak var submit_button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +28,17 @@ class RegistrationViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func submit_registration(_ sender: UIButton) {
+        let controller2 = UIAlertController(
+            title:"Deer Registration Complete",
+            message: "Exit", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Phew!",
+                                         style: .cancel, handler: nil)
+        controller2.addAction(cancelAction)
+        self.present(controller2, animated: true,
+                     completion: nil)
+    }
+    
     // MARK: - Table view data source
 
 //    override func numberOfSections(in tableView: UITableView) -> Int {
