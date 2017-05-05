@@ -19,8 +19,18 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
         "Firearm", "Bow", "Muzzleloader", "Crossbow"
     ]
     
+    // Variables for counties in picker
+    @IBOutlet weak var county_picker: UIPickerView!
+    private var counties_d:[String]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let plistURL = Bundle.main.path(forResource:"counties", ofType: "plist")
+        //counties = NSDictionary.init(contentsOf: (plistURL)!) as! [String]
+        let counties_dict = NSDictionary(contentsOfFile: plistURL!)
+        counties_d = counties_dict!.allKeys as! [String]//Array<String>//[String]
+        //let counties = (counties_d!.allKeys as! [String:[String]]).sorted()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -36,9 +46,15 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
 
     @IBAction func submit_registration(_ sender: UIButton) {
         // method of kill picker
-        let row = method_of_kill_picker.selectedRow(inComponent: 0)
-        let selected = method_of_kill[row]
-        let msg = "Method of kill: \(selected)"
+        //let row = method_of_kill_picker.selectedRow(inComponent: 0)
+        //let selected = method_of_kill[row]
+        //let msg = "Method of kill: \(selected)"
+        
+        // County information
+        let countyRow = county_picker.selectedRow(inComponent: 0)
+        let selected_county = counties_d[countyRow]
+        let msg = " blah \(selected_county)"
+        
         
         
         // Begin alert messages
@@ -47,7 +63,6 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
         
         let yesAction = UIAlertAction(title: "Yes, I'm ready!",
                                       style: .destructive, handler: { action in
-                                        //let msg = "It is now safe to exit"
                                         let controller2 = UIAlertController(
                                             title:"Deer registration complete!",
                                             message: msg, preferredStyle: .alert)
@@ -149,12 +164,20 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
     }
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
-        return method_of_kill.count
+        if component == 0 {
+            return counties_d.count
+        } else {
+            return counties_d.count
+        }
     }
     
     // MARK: Picker Delegate Methods
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return method_of_kill[row]
+        if component == 0 {
+            return counties_d[row]
+        } else {
+            return counties_d[row]
+        }
     }
 
 }
