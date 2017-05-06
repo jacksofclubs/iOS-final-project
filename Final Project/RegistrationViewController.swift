@@ -10,21 +10,17 @@ import UIKit
 
 class RegistrationViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    // Outlet variable for submit button
-    @IBOutlet weak var submit_button: UIButton!
-    // Set up picker components
-//    private let method_of_kill_component = 0
-//    private let counties_component = 1
-    // Outlet variable for method of kill picker
-//    @IBOutlet weak var method_of_kill_picker: UIPickerView!
-    // Data source for method of kill picker
-//    private let method_of_kill = [
-//        "Firearm", "Bow", "Muzzleloader", "Crossbow"
-//    ]
-    
+    // Deer type segmented control
+    @IBOutlet weak var deer_types_selector: UISegmentedControl!
+    // Method of kill segmented control
+    @IBOutlet weak var method_of_kill_selector: UISegmentedControl!
+    // Date picker
+    @IBOutlet weak var date_picker: UIDatePicker!
     // Variables for counties in picker
     @IBOutlet weak var county_picker: UIPickerView!
     private var counties_d:[String]!
+    // Outlet variable for submit button
+    @IBOutlet weak var submit_button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +32,7 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
         //let counties = (counties_d!.allKeys as! [String:[String]]).sorted()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -47,25 +43,33 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
         // Dispose of any resources that can be recreated.
     }
 
+    // Function called when user selects 'Submit' button
     @IBAction func submit_registration(_ sender: UIButton) {
-        // method of kill picker
-//        let row = method_of_kill_picker.selectedRow(inComponent: method_of_kill_component)
-//        let selected = method_of_kill[row]
-        //let msg = "Method of kill: \(selected)"
+        
+        // Deer information
+        // Sets to 0 for antlered, 1 for antlerless
+        let deer_type = deer_types_selector.selectedSegmentIndex
+        
+        // Method of kill information
+        // Sets to 0 = firearm, 1 = bow, 2 = muzzleloader, 3 = crossbow
+        let method_of_kill = method_of_kill_selector.selectedSegmentIndex
+        
+        // Date information
+        let time_of_kill = date_picker.date
         
         // County information
         let countyRow = county_picker.selectedRow(inComponent: 0)
         let selected_county = counties_d[countyRow]
-        let msg = "You selected \(selected_county) county"
-        
+        let msg = "You selected \(selected_county) county and deer type is \(deer_type) and method of kill is \(method_of_kill) at the time of \(time_of_kill)"
         
         
         // Begin alert messages
         let controller = UIAlertController(title: "Are you sure you want to submit?",
-                                           message:nil, preferredStyle: .actionSheet)
+                                           message:nil, preferredStyle: .alert)
         
+        // Yes action
         let yesAction = UIAlertAction(title: "Yes, I'm ready!",
-                                      style: .destructive, handler: { action in
+                                      style: .default , handler: { action in
                                         let controller2 = UIAlertController(
                                             title:"Deer registration complete!",
                                             message: msg, preferredStyle: .alert)
@@ -76,9 +80,10 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
                                                      completion: nil)
         })
         
+        // No action
         let noAction = UIAlertAction(title: "No, not yet!",
-                                     style: .cancel, handler: nil)
-        
+                                     style: .destructive, handler: nil)
+        // Add actions to alert controller
         controller.addAction(yesAction)
         controller.addAction(noAction)
         
@@ -89,7 +94,8 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
         }
         
         present(controller, animated: true, completion: nil)
-        // End alert messages
+        
+        
     }
     
     // MARK: - Table view data source
