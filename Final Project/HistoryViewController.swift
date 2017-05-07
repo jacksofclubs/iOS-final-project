@@ -31,8 +31,12 @@ class HistoryViewController: UIViewController {
         do {
             let objects = try context.fetch(request)
             for object in objects {
-                let deer_type = (object as AnyObject).value(forKey: HistoryViewController.deer_type_key) as? String ?? ""
-                deer_type_label.text = deer_type
+                let deer_type      = (object as AnyObject).value(forKey: HistoryViewController.deer_type_key)      as? String ?? ""
+                let method_of_kill = (object as AnyObject).value(forKey: HistoryViewController.method_of_kill_key) as? String ?? ""
+                let date_of_kill   = (object as AnyObject).value(forKey: HistoryViewController.date_of_kill_key)   as? Date   ?? Date()
+                let county         = (object as AnyObject).value(forKey: HistoryViewController.county_key)         as? String ?? ""
+                
+                deer_type_label.text = "Registered an \(deer_type) deer using a \(method_of_kill) in \(county) on \(date_of_kill)."
             }
 
             let app = UIApplication.shared

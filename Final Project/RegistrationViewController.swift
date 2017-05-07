@@ -33,9 +33,9 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
         super.viewDidLoad()
         
         // For data persistence
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.managedObjectContext
-        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: RegistrationViewController.lineEntityName)
+        // let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        // let context = appDelegate.managedObjectContext
+        // let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: RegistrationViewController.lineEntityName)
         
         let plistURL = Bundle.main.path(forResource:"counties", ofType: "plist")
         //counties = NSDictionary.init(contentsOf: (plistURL)!) as! [String]
