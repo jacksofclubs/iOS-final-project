@@ -11,11 +11,11 @@ import CoreData
 
 class RegistrationViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    private static let lineEntityName     = "Registration"
-    private static let deer_type_key      = "deer_type"
-    private static let method_of_kill_key = "method_of_kill"
-    private static let date_of_kill_key   = "date_of_kill"
-    private static let county_key         = "county"
+    public static let lineEntityName     = "Registration"
+    public static let deer_type_key      = "deer_type"
+    public static let method_of_kill_key = "method_of_kill"
+    public static let date_of_kill_key   = "date_of_kill"
+    public static let county_key         = "county"
     
     // Deer type segmented control
     @IBOutlet weak var deer_types_selector: UISegmentedControl!
@@ -33,9 +33,9 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
         super.viewDidLoad()
         
         // For data persistence
-        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //let context = appDelegate.managedObjectContext
-        //let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: ViewController.lineEntityName)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.managedObjectContext
+        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: RegistrationViewController.lineEntityName)
         
         let plistURL = Bundle.main.path(forResource:"counties", ofType: "plist")
         //counties = NSDictionary.init(contentsOf: (plistURL)!) as! [String]
@@ -221,13 +221,21 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
     func myFunction(deer_type: String, method_of_kill: String, date_of_kill: Date, county: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.managedObjectContext
-        var theLine:NSManagedObject! //as? NSManagedObject
-        theLine = NSEntityDescription.insertNewObject(forEntityName: RegistrationViewController.lineEntityName,
+        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: RegistrationViewController.lineEntityName)
+        do{
+        let objects = try context.fetch(request)
+        var theLine:NSManagedObject! = objects.first as? NSManagedObject
+        theLine = NSEntityDescription.insertNewObject(forEntityName: HistoryViewController.lineEntityName,
                 into: context)as NSManagedObject
-        theLine.setValue(deer_type,      forKey: RegistrationViewController.deer_type_key)
-        theLine.setValue(method_of_kill, forKey: RegistrationViewController.method_of_kill_key)
-        theLine.setValue(date_of_kill,   forKey: RegistrationViewController.date_of_kill_key)
-        theLine.setValue(county,   forKey: RegistrationViewController.county_key)
+        theLine.setValue(deer_type,      forKey: HistoryViewController.deer_type_key)
+        theLine.setValue(method_of_kill, forKey: HistoryViewController.method_of_kill_key)
+        theLine.setValue(date_of_kill,   forKey: HistoryViewController.date_of_kill_key)
+        theLine.setValue(county,         forKey: HistoryViewController.county_key)
+        } catch {
+            print("Error")
+        }
+        
+        appDelegate.saveContext()
         //theLine.setValue(county_key,     forKey: RegistrationViewController.county_key)
         
         //let managedObjectContext: NSManagedObjectContext
