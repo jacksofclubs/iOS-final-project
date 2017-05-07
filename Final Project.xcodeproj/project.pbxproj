@@ -17,7 +17,6 @@
 		0A39DF771EBAF08B00EF2747 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A39DF761EBAF08B00EF2747 /* RegistrationViewController.swift */; };
 		0A39DF791EBAF0EF00EF2747 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A39DF781EBAF0EF00EF2747 /* InfoViewController.swift */; };
 		0A39DF7B1EBAF10400EF2747 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A39DF7A1EBAF10400EF2747 /* HistoryViewController.swift */; };
-		0A39DF821EBEF18400EF2747 /* coreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A39DF801EBEF18400EF2747 /* coreDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		0A39DF761EBAF08B00EF2747 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		0A39DF781EBAF0EF00EF2747 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		0A39DF7A1EBAF10400EF2747 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		0A39DF811EBEF18400EF2747 /* coreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coreDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +75,6 @@
 				0A39DF761EBAF08B00EF2747 /* RegistrationViewController.swift */,
 				0A39DF781EBAF0EF00EF2747 /* InfoViewController.swift */,
 				0A39DF7A1EBAF10400EF2747 /* HistoryViewController.swift */,
-				0A39DF801EBEF18400EF2747 /* coreDataModel.xcdatamodeld */,
 			);
 			path = "Final Project";
 			sourceTree = "<group>";
@@ -159,7 +156,6 @@
 				0A39DF751EBAF06100EF2747 /* LicenseViewController.swift in Sources */,
 				0A39DF771EBAF08B00EF2747 /* RegistrationViewController.swift in Sources */,
 				0A39DF7B1EBAF10400EF2747 /* HistoryViewController.swift in Sources */,
-				0A39DF821EBEF18400EF2747 /* coreDataModel.xcdatamodeld in Sources */,
 				0A28A2AE1EA5BF6300A985A9 /* AppDelegate.swift in Sources */,
 				0A39DF791EBAF0EF00EF2747 /* InfoViewController.swift in Sources */,
 			);
@@ -328,19 +324,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0A39DF801EBEF18400EF2747 /* coreDataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0A39DF811EBEF18400EF2747 /* coreDataModel.xcdatamodel */,
-			);
-			currentVersion = 0A39DF811EBEF18400EF2747 /* coreDataModel.xcdatamodel */;
-			path = coreDataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0A28A2A21EA5BF6300A985A9 /* Project object */;
 }
