@@ -206,16 +206,6 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
 //        }
     }
     
-    // Returns the URL of the data file that we'll create
-//    func dataFileURL() -> NSURL {
-//        let urls = FileManager.default.urls(for:
-//            .documentDirectory, in: .userDomainMask)
-//        var url:NSURL?
-//        url = URL(fileURLWithPath: "") as NSURL?      // create a blank path
-//        url = urls.first?.appendingPathComponent("data.archive") as NSURL?
-//        return url!
-//    }
-    
     func myFunction(deer_type: String, method_of_kill: String, date_of_kill: Date, county: String) {
         
     }
