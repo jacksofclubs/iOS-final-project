@@ -48,11 +48,27 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
         
         // Deer information
         // Sets to 0 for antlered, 1 for antlerless
-        let deer_type = deer_types_selector.selectedSegmentIndex
+        let deer_type_selection = deer_types_selector.selectedSegmentIndex
+        let deer_type = deer_type_selection == 0 ? "antlered" : "antlerless"
+        
         
         // Method of kill information
         // Sets to 0 = firearm, 1 = bow, 2 = muzzleloader, 3 = crossbow
-        let method_of_kill = method_of_kill_selector.selectedSegmentIndex
+        let method_of_kill_selection = method_of_kill_selector.selectedSegmentIndex
+        var method_of_kill = ""
+        switch method_of_kill_selection {
+            case 0:
+                method_of_kill = "firearm"
+            case 1:
+                method_of_kill = "bow"
+            case 2:
+                method_of_kill = "muzzleloader"
+            case 3:
+                method_of_kill = "crossbow"
+            default:
+                method_of_kill = ""
+        }
+        
         
         // Date information
         let time_of_kill = date_picker.date
@@ -78,6 +94,7 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
                                         controller2.addAction(cancelAction)
                                         self.present(controller2, animated: true,
                                                      completion: nil)
+                                        self.myFunction(deer_type: deer_type, method_of_kill: method_of_kill, date_of_kill: time_of_kill, county: selected_county)
         })
         
         // No action
@@ -187,6 +204,20 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
 //        } else {
             return counties_d[row]
 //        }
+    }
+    
+    // Returns the URL of the data file that we'll create
+//    func dataFileURL() -> NSURL {
+//        let urls = FileManager.default.urls(for:
+//            .documentDirectory, in: .userDomainMask)
+//        var url:NSURL?
+//        url = URL(fileURLWithPath: "") as NSURL?      // create a blank path
+//        url = urls.first?.appendingPathComponent("data.archive") as NSURL?
+//        return url!
+//    }
+    
+    func myFunction(deer_type: String, method_of_kill: String, date_of_kill: Date, county: String) {
+        
     }
 
 }
