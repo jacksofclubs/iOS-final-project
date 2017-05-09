@@ -63,13 +63,41 @@ class LicenseViewController: UITableViewController {
         let msg = "This is some text to displayed!"
         
         // Begin alert messages
+        let controller = UIAlertController(title: "Are you sure you want to submit?",
+                                           message:nil, preferredStyle: .alert)
+
         
         // Yes action
+        let yesAction = UIAlertAction(title: "Yes, I'm ready!",
+                                      style: .default , handler: { action in
+                                        let controller2 = UIAlertController(
+                                            title:"License purchase complete!",
+                                            message: msg, preferredStyle: .alert)
+                                        let cancelAction = UIAlertAction(title: "Great!",
+                                                                         style: .cancel, handler: nil)
+                                        controller2.addAction(cancelAction)
+                                        self.present(controller2, animated: true,
+                                                     completion: nil)
+                                        //self.myFunction(deer_type: deer_type, method_of_kill: method_of_kill, date_of_kill: time_of_kill, county: selected_county)
+                                        self.saveCoreData()
+        })
+
         
         // No action
+        let noAction = UIAlertAction(title: "No, not yet!",
+                                     style: .destructive, handler: nil)
         
         // Add actions to alert controller
+        controller.addAction(yesAction)
+        controller.addAction(noAction)
         
+        if let ppc = controller.popoverPresentationController {
+            ppc.sourceView = sender
+            ppc.sourceRect = sender.bounds
+            ppc.permittedArrowDirections = .down
+        }
+        
+        present(controller, animated: true, completion: nil)
         
     }
     
