@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
 class LicenseViewController: UITableViewController {
+    
+    // Variable names for core data
+    public static let lineEntityName            = "License"
+    public static let wi_resident_status_key    = "wi_resident_status"
+    public static let junior_hunter_status_key  = "junior_hunter_status"
+    public static let antlered_tag_status_key   = "antlered_tag_status"
+    public static let antlerless_tag_status_key = "antlerless_tag_status"
+    public static let num_antlerless_tags_key   = "num_antlerless_tags"
+    public static let certification_number_key  = "certification_number"
+    public static let total_cost_key            = "total_cost"
 
     @IBOutlet weak var wi_resident_switch: UISwitch!
     @IBOutlet weak var junior_hunter_switch: UISwitch!
@@ -51,13 +62,13 @@ class LicenseViewController: UITableViewController {
     @IBAction func submit_license(_ sender: UIButton) {
         
         // Set input status to variables
-        let wi_resident_selection          = wi_resident_switch.isSelected
-        let junior_hunter_selection        = junior_hunter_switch.isSelected
-        let antlered_tag_selction          = antlered_tag_switch.isSelected
-        let antlerless_tag_selection       = antlerless_tag_switch.isSelected
-        let num_antlerless_tag_selection   = num_antlerless_tags_ctrl.selectedSegmentIndex
-        let certification_number_selection = certification_number_input.text
-        let total_cost                     = total_cost_label.text
+        let wi_resident_status    = wi_resident_switch.isSelected
+        let junior_hunter_status  = junior_hunter_switch.isSelected
+        let antlered_tag_status   = antlered_tag_switch.isSelected
+        let antlerless_tag_status = antlerless_tag_switch.isSelected
+        let num_antlerless_tags   = num_antlerless_tags_ctrl.selectedSegmentIndex
+        let certification_number  = certification_number_input.text
+        let total_cost            = 10 //total_cost_label.text
         
         // Set message to be saved
         let msg = "This is some text to displayed!"
@@ -79,7 +90,15 @@ class LicenseViewController: UITableViewController {
                                         self.present(controller2, animated: true,
                                                      completion: nil)
                                         //self.myFunction(deer_type: deer_type, method_of_kill: method_of_kill, date_of_kill: time_of_kill, county: selected_county)
-                                        self.saveCoreData()
+                                        self.saveCoreData(
+                                            wi_resident_status: wi_resident_status,
+                                            junior_hunter_status: junior_hunter_status,
+                                            antlered_tag_status: antlered_tag_status,
+                                            antlerless_tag_status: antlerless_tag_status,
+                                            num_antlerless_tags: num_antlerless_tags,
+                                            certification_number: certification_number!,
+                                            total_cost: Decimal(total_cost)
+                                        )
         })
 
         
@@ -102,8 +121,37 @@ class LicenseViewController: UITableViewController {
     }
     
     // Function to save license to core data
-    func saveCoreData() {
+    func saveCoreData(
+        wi_resident_status: Bool,
+        junior_hunter_status: Bool,
+        antlered_tag_status: Bool,
+        antlerless_tag_status: Bool,
+        num_antlerless_tags: Int,
+        certification_number: String,
+        total_cost: Decimal
+        ) {
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.managedObjectContext
+        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: LicenseViewController.lineEntityName)
+        do{
+            let objects = try context.fetch(request)
+            var theData:NSManagedObject! = objects.first as? NSManagedObject
+            theData = NSEntityDescription.insertNewObject(forEntityName: InfoViewController.lineEntityName,
+                                                          into: context)as NSManagedObject
+            theData.setValue(wi_resident_status,    forKey: InfoViewController.wi_resident_status_key)
+            theData.setValue(junior_hunter_status,  forKey: InfoViewController.junior_hunter_status_key)
+            theData.setValue(antlered_tag_status,   forKey: InfoViewController.antlered_tag_status_key)
+            theData.setValue(antlerless_tag_status, forKey: InfoViewController.antlerless_tag_status_key)
+            theData.setValue(num_antlerless_tags,   forKey: InfoViewController.num_antlerless_tags_key)
+            theData.setValue(certification_number,  forKey: InfoViewController.certification_number_key)
+            theData.setValue(total_cost,            forKey: InfoViewController.total_cost_key)
+        } catch {
+            print("Error")
+        }
+        
+        appDelegate.saveContext()
+
     }
     
     
