@@ -45,7 +45,7 @@ class InfoViewController: UIViewController {
                 let certification_number  = (object as AnyObject).value(forKey: InfoViewController.certification_number_key)  as? String  ?? ""
                 let total_cost            = (object as AnyObject).value(forKey: InfoViewController.total_cost_key)            as? Decimal ?? 0
                 
-                dataDump.text = "Some of the data: num_antlerless_tags \(num_antlerless_tags), certification_number \(certification_number), total_cost \(total_cost), antlerless_tag_status \(antlerless_tag_status)."
+                dataDump.text = "Some of the data: num_antlerless_tags \(num_antlerless_tags), certification_number \(certification_number), total_cost \(total_cost), antlerless_tag_status \(antlerless_tag_status), wi_resident_status \(wi_resident_status), junior_hunter_status \(junior_hunter_status), antlered_tag_status \(antlered_tag_status)."
             }
             
             let app = UIApplication.shared
