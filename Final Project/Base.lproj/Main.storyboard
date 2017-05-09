@@ -454,7 +454,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -488,9 +488,22 @@
                             <outlet property="delegate" destination="mFH-dT-AEp" id="7np-aR-OKV"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="antlered_tag_switch" destination="uLF-FP-d4h" id="Rh6-9S-xhW"/>
+                        <outlet property="antlerless_tag_switch" destination="cwu-iY-O8i" id="lMK-Pz-mao"/>
+                        <outlet property="certification_number_input" destination="OPz-kp-0h2" id="LJA-lP-Tlv"/>
+                        <outlet property="junior_hunter_switch" destination="Lgi-iC-FpP" id="Fd8-lB-5el"/>
+                        <outlet property="num_antlerless_tags_ctrl" destination="gMr-90-n8j" id="Noy-s2-g7U"/>
+                        <outlet property="total_cost_label" destination="IvP-kC-x1r" id="g9D-ir-m8d"/>
+                        <outlet property="wi_resident_switch" destination="c2b-Yc-MsS" id="epK-gK-7iu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLA-Zx-Uhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="5bH-in-JFC"/>
+                <tapGestureRecognizer id="5bH-in-JFC">
+                    <connections>
+                        <action selector="onTapGesture:" destination="mFH-dT-AEp" id="uV7-xg-B4A"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1589.8550724637682" y="-189.13043478260872"/>
         </scene>

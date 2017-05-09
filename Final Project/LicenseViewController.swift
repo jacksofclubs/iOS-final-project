@@ -10,8 +10,24 @@ import UIKit
 
 class LicenseViewController: UITableViewController {
 
+    @IBOutlet weak var wi_resident_switch: UISwitch!
+    @IBOutlet weak var junior_hunter_switch: UISwitch!
+    @IBOutlet weak var antlered_tag_switch: UISwitch!
+    @IBOutlet weak var antlerless_tag_switch: UISwitch!
+    @IBOutlet weak var num_antlerless_tags_ctrl: UISegmentedControl!
+    @IBOutlet weak var certification_number_input: UITextField!
+    @IBOutlet weak var total_cost_label: UILabel!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Creates variable for tap gesture in order to dismiss number pad
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: #selector(LicenseViewController.didTapView))
+        self.view.addGestureRecognizer(tapRecognizer)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -25,6 +41,13 @@ class LicenseViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // When user clicks off the keypad
+    func didTapView(){
+        self.view.endEditing(true)
+    }
+
+    
+    
     // MARK: - Table view data source
 
 //    override func numberOfSections(in tableView: UITableView) -> Int {
