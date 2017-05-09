@@ -21,6 +21,9 @@ class InfoViewController: UIViewController {
     public static let certification_number_key  = "certification_number"
     public static let total_cost_key            = "total_cost"
 
+    // Data dump to test core data
+    @IBOutlet weak var dataDump: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +32,7 @@ class InfoViewController: UIViewController {
         // Core data
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.managedObjectContext
-        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: RegistrationViewController.lineEntityName)
+        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: LicenseViewController.lineEntityName)
         
         do {
             let objects = try context.fetch(request)
@@ -42,7 +45,7 @@ class InfoViewController: UIViewController {
                 let certification_number  = (object as AnyObject).value(forKey: InfoViewController.certification_number_key)  as? String  ?? ""
                 let total_cost            = (object as AnyObject).value(forKey: InfoViewController.total_cost_key)            as? Decimal ?? 0
                 
-                //deer_type_label.text = "Registered an \(deer_type) deer using a \(method_of_kill) in \(county) on \(date_of_kill)."
+                dataDump.text = "Some of the data: num_antlerless_tags \(num_antlerless_tags), certification_number \(certification_number), total_cost \(total_cost), antlerless_tag_status \(antlerless_tag_status)."
             }
             
             let app = UIApplication.shared
