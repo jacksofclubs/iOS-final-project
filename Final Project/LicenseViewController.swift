@@ -17,6 +17,7 @@ class LicenseViewController: UITableViewController {
     @IBOutlet weak var num_antlerless_tags_ctrl: UISegmentedControl!
     @IBOutlet weak var certification_number_input: UITextField!
     @IBOutlet weak var total_cost_label: UILabel!
+    @IBOutlet weak var submit_button: UIButton!
     
     
     
@@ -46,6 +47,36 @@ class LicenseViewController: UITableViewController {
         self.view.endEditing(true)
     }
 
+    // Function called when user selects 'Submit' button
+    @IBAction func submit_license(_ sender: UIButton) {
+        
+        // Set input status to variables
+        let wi_resident_selection          = wi_resident_switch.isSelected
+        let junior_hunter_selection        = junior_hunter_switch.isSelected
+        let antlered_tag_selction          = antlered_tag_switch.isSelected
+        let antlerless_tag_selection       = antlerless_tag_switch.isSelected
+        let num_antlerless_tag_selection   = num_antlerless_tags_ctrl.selectedSegmentIndex
+        let certification_number_selection = certification_number_input.text
+        let total_cost                     = total_cost_label.text
+        
+        // Set message to be saved
+        let msg = "This is some text to displayed!"
+        
+        // Begin alert messages
+        
+        // Yes action
+        
+        // No action
+        
+        // Add actions to alert controller
+        
+        
+    }
+    
+    // Function to save license to core data
+    func saveCoreData() {
+        
+    }
     
     
     // MARK: - Table view data source

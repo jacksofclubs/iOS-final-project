@@ -480,6 +480,32 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="lvK-s7-88X">
+                                        <rect key="frame" x="0.0" y="420" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lvK-s7-88X" id="O6a-PN-OBr">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3sN-vz-HqY">
+                                        <rect key="frame" x="0.0" y="464" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3sN-vz-HqY" id="NBp-l5-MAc">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bi-E3-nGk">
+                                                    <rect key="frame" x="174" y="7" width="67" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Submit"/>
+                                                    <connections>
+                                                        <action selector="submit_license:" destination="mFH-dT-AEp" eventType="touchUpInside" id="4oc-e6-jTN"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -494,6 +520,7 @@
                         <outlet property="certification_number_input" destination="OPz-kp-0h2" id="LJA-lP-Tlv"/>
                         <outlet property="junior_hunter_switch" destination="Lgi-iC-FpP" id="Fd8-lB-5el"/>
                         <outlet property="num_antlerless_tags_ctrl" destination="gMr-90-n8j" id="Noy-s2-g7U"/>
+                        <outlet property="submit_button" destination="7bi-E3-nGk" id="9OF-v4-Wum"/>
                         <outlet property="total_cost_label" destination="IvP-kC-x1r" id="g9D-ir-m8d"/>
                         <outlet property="wi_resident_switch" destination="c2b-Yc-MsS" id="epK-gK-7iu"/>
                     </connections>
