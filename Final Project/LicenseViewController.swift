@@ -58,6 +58,49 @@ class LicenseViewController: UITableViewController {
         self.view.endEditing(true)
     }
     
+    // Create action methods here for each user input
+    // Each time a user input is touched, will call function to calculate total cost
+    @IBAction func residentClicked(_ sender: UISwitch) {
+        calculateTotalCost()
+    }
+    @IBAction func juniorClicked(_ sender: UISwitch) {
+        calculateTotalCost()
+    }
+    @IBAction func antlerlessClicked(_ sender: UISwitch) {
+        calculateTotalCost()
+    }
+    @IBAction func numAntlerlessClicked(_ sender: UISegmentedControl) {
+        calculateTotalCost()
+    }
+    
+    
+    var total_cost = 0
+    // Function to calculate total cost
+    func calculateTotalCost() {
+        // Starts off as 160, the nonresidence price
+        total_cost = 160
+        if (wi_resident_switch.isOn) {
+            // if resident, get resident price
+            total_cost = 24
+        }
+        // if junior hunter and resident
+        if (wi_resident_switch.isOn && junior_hunter_switch.isOn) {
+            total_cost = 20
+        }
+        // if resident and extra antlerless tags
+//        if (wi_resident_switch.isOn) {
+//            total_cost = total_cost + (num_antlerless_tags_ctrl.value(forKey: <#T##String#>) * 12)
+//        }
+        
+        // if nonresident and extra antlerless tags
+//        if () {
+//
+//        }
+        
+        total_cost_label.text = "$" + String(total_cost) + ".00"
+        
+    }
+    
     // Show / Hide the num_antlerless_tags segmented control
     @IBAction func showHideNumAntlerless(_ sender: UISwitch) {
         if (self.antlerless_tag_switch.isOn) {
@@ -77,7 +120,7 @@ class LicenseViewController: UITableViewController {
         let antlerless_tag_status = antlerless_tag_switch.isOn
         let num_antlerless_tags   = num_antlerless_tags_ctrl.selectedSegmentIndex
         let certification_number  = certification_number_input.text
-        let total_cost            = 10 //total_cost_label.text
+        //let total_cost            = 25 //Int(total_cost_label.text!)
         
         // Set message to be saved
         let msg = "Have a safe hunting season"
@@ -106,7 +149,7 @@ class LicenseViewController: UITableViewController {
                                             antlerless_tag_status: antlerless_tag_status,
                                             num_antlerless_tags: num_antlerless_tags,
                                             certification_number: certification_number!,
-                                            total_cost: Decimal(total_cost)
+                                            total_cost: Decimal(self.total_cost)
                                         )
         })
 
