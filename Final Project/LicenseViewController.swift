@@ -57,6 +57,15 @@ class LicenseViewController: UITableViewController {
     func didTapView(){
         self.view.endEditing(true)
     }
+    
+    // Show / Hide the num_antlerless_tags segmented control
+    @IBAction func showHideNumAntlerless(_ sender: UISwitch) {
+        if (self.antlerless_tag_switch.isOn) {
+            self.num_antlerless_tags_ctrl.isHidden = false
+        } else if (!self.antlerless_tag_switch.isOn) {
+            self.num_antlerless_tags_ctrl.isHidden = true
+        }
+    }
 
     // Function called when user selects 'Submit' button
     @IBAction func submit_license(_ sender: UIButton) {
@@ -71,7 +80,7 @@ class LicenseViewController: UITableViewController {
         let total_cost            = 10 //total_cost_label.text
         
         // Set message to be saved
-        let msg = "This is some text to displayed!"
+        let msg = "Have a safe hunting season"
         
         // Begin alert messages
         let controller = UIAlertController(title: "Are you sure you want to submit?",
@@ -79,12 +88,12 @@ class LicenseViewController: UITableViewController {
 
         
         // Yes action
-        let yesAction = UIAlertAction(title: "Yes, I'm ready!",
+        let yesAction = UIAlertAction(title: "Yes, I'm ready",
                                       style: .default , handler: { action in
                                         let controller2 = UIAlertController(
                                             title:"License purchase complete!",
                                             message: msg, preferredStyle: .alert)
-                                        let cancelAction = UIAlertAction(title: "Great!",
+                                        let cancelAction = UIAlertAction(title: "OK",
                                                                          style: .cancel, handler: nil)
                                         controller2.addAction(cancelAction)
                                         self.present(controller2, animated: true,
@@ -103,7 +112,7 @@ class LicenseViewController: UITableViewController {
 
         
         // No action
-        let noAction = UIAlertAction(title: "No, not yet!",
+        let noAction = UIAlertAction(title: "No, not yet",
                                      style: .destructive, handler: nil)
         
         // Add actions to alert controller

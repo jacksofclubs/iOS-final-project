@@ -23,6 +23,8 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        deer_type_label.sizeToFit()
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.managedObjectContext
@@ -36,7 +38,10 @@ class HistoryViewController: UIViewController {
                 let date_of_kill   = (object as AnyObject).value(forKey: HistoryViewController.date_of_kill_key)   as? Date   ?? Date()
                 let county         = (object as AnyObject).value(forKey: HistoryViewController.county_key)         as? String ?? ""
                 
-                deer_type_label.text = "Registered an \(deer_type) deer using a \(method_of_kill) in \(county) on \(date_of_kill)."
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .long
+                
+                deer_type_label.text = "Last registered an \(deer_type) deer taken using a \(method_of_kill) in \(county) county on \(dateFormatter.string(from: date_of_kill))."
             }
 
             let app = UIApplication.shared

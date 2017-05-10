@@ -29,6 +29,8 @@ class InfoViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        dataDump.sizeToFit()
+        
         // Core data
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.managedObjectContext

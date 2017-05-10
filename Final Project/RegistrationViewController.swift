@@ -88,7 +88,8 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
         // County information
         let countyRow = county_picker.selectedRow(inComponent: 0)
         let selected_county = counties_d[countyRow]
-        let msg = "You selected \(selected_county) county and deer type is \(deer_type) and method of kill is \(method_of_kill) at the time of \(time_of_kill)"
+        //let msg = "You selected \(selected_county) county and deer type is \(deer_type) and method of kill is \(method_of_kill) at the time of \(time_of_kill)"
+        let msg = "Thank you for a safe hunting season"
         
         
         // Begin alert messages
@@ -96,12 +97,12 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
                                            message:nil, preferredStyle: .alert)
         
         // Yes action
-        let yesAction = UIAlertAction(title: "Yes, I'm ready!",
+        let yesAction = UIAlertAction(title: "Yes, I'm ready",
                                       style: .default , handler: { action in
                                         let controller2 = UIAlertController(
                                             title:"Deer registration complete!",
                                             message: msg, preferredStyle: .alert)
-                                        let cancelAction = UIAlertAction(title: "Great!",
+                                        let cancelAction = UIAlertAction(title: "OK",
                                                                          style: .cancel, handler: nil)
                                         controller2.addAction(cancelAction)
                                         self.present(controller2, animated: true,
@@ -110,7 +111,7 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
         })
         
         // No action
-        let noAction = UIAlertAction(title: "No, not yet!",
+        let noAction = UIAlertAction(title: "No, not yet",
                                      style: .destructive, handler: nil)
         // Add actions to alert controller
         controller.addAction(yesAction)
