@@ -71,10 +71,10 @@ class LicenseViewController: UITableViewController {
     @IBAction func submit_license(_ sender: UIButton) {
         
         // Set input status to variables
-        let wi_resident_status    = wi_resident_switch.isSelected
-        let junior_hunter_status  = junior_hunter_switch.isSelected
-        let antlered_tag_status   = antlered_tag_switch.isSelected
-        let antlerless_tag_status = antlerless_tag_switch.isSelected
+        let wi_resident_status    = wi_resident_switch.isOn
+        let junior_hunter_status  = junior_hunter_switch.isOn
+        let antlered_tag_status   = antlered_tag_switch.isOn
+        let antlerless_tag_status = antlerless_tag_switch.isOn
         let num_antlerless_tags   = num_antlerless_tags_ctrl.selectedSegmentIndex
         let certification_number  = certification_number_input.text
         let total_cost            = 10 //total_cost_label.text

@@ -47,7 +47,23 @@ class InfoViewController: UIViewController {
                 let certification_number  = (object as AnyObject).value(forKey: InfoViewController.certification_number_key)  as? String  ?? ""
                 let total_cost            = (object as AnyObject).value(forKey: InfoViewController.total_cost_key)            as? Decimal ?? 0
                 
-                dataDump.text = "Some of the data: num_antlerless_tags \(num_antlerless_tags), certification_number \(certification_number), total_cost \(total_cost), antlerless_tag_status \(antlerless_tag_status), wi_resident_status \(wi_resident_status), junior_hunter_status \(junior_hunter_status), antlered_tag_status \(antlered_tag_status)."
+                var antlered_tag_text = ""
+                if (antlered_tag_status == true) {
+                    antlered_tag_text = "antlered tag purchased"
+                } else {
+                    antlered_tag_text = "no antlered tag purchased"
+                }
+                
+                var antlerless_tag_text = ""
+                if (antlerless_tag_status == true) {
+                    antlerless_tag_text = "antlerless tags purchased"
+                } else {
+                    antlerless_tag_text = "antlerless tags purchased"
+                }
+                var num_antlerless_tags_text = num_antlerless_tags + 1
+                
+                //dataDump.text = "Some of the data: num_antlerless_tags \(num_antlerless_tags), certification_number \(certification_number), total_cost \(total_cost), antlerless_tag_status \(antlerless_tag_status), wi_resident_status \(wi_resident_status), junior_hunter_status \(junior_hunter_status), antlered_tag_status \(antlered_tag_status)."
+                dataDump.text = "License information: \(antlered_tag_text), \(num_antlerless_tags_text) \(antlerless_tag_text) for license number \(certification_number)."
             }
             
             let app = UIApplication.shared
