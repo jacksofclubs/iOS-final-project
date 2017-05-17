@@ -62,7 +62,6 @@ class InfoViewController: UIViewController {
                 }
                 var num_antlerless_tags_text = num_antlerless_tags + 1
                 
-                //dataDump.text = "Some of the data: num_antlerless_tags \(num_antlerless_tags), certification_number \(certification_number), total_cost \(total_cost), antlerless_tag_status \(antlerless_tag_status), wi_resident_status \(wi_resident_status), junior_hunter_status \(junior_hunter_status), antlered_tag_status \(antlered_tag_status)."
                 dataDump.text = "License information: \(antlered_tag_text), \(num_antlerless_tags_text) \(antlerless_tag_text) for license number \(certification_number)."
             }
             
@@ -82,16 +81,5 @@ class InfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
