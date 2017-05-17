@@ -41,6 +41,11 @@ class RegistrationViewController: UITableViewController, UIPickerViewDelegate, U
         //counties = NSDictionary.init(contentsOf: (plistURL)!) as! [String]
         let counties_dict = NSDictionary(contentsOfFile: plistURL!)
         counties_d = counties_dict!.allKeys as! [String]//Array<String>//[String]
+        counties_d = counties_d.sorted()
+        //let descriptor: NSSortDescriptor = NSSortDescriptor(key: "key", ascending: true)
+        //let sortedResults: NSArray = counties_d.sorte
+        
+        
         //let counties = (counties_d!.allKeys as! [String:[String]]).sorted()
 
         // Uncomment the following line to preserve selection between presentations
