@@ -87,16 +87,15 @@ class LicenseViewController: UITableViewController {
         if (wi_resident_switch.isOn && junior_hunter_switch.isOn) {
             total_cost = 20
         }
-        // if resident and extra antlerless tags
-//        if (wi_resident_switch.isOn) {
-//            total_cost = total_cost + (num_antlerless_tags_ctrl.value(forKey: <#T##String#>) * 12)
-//        }
         
-        // if nonresident and extra antlerless tags
-//        if () {
-//
-//        }
-        
+        if (wi_resident_switch.isOn && antlerless_tag_switch.isOn) {
+            // if resident and extra antlerless tags
+            total_cost = total_cost + ((num_antlerless_tags_ctrl.selectedSegmentIndex + 1) * 12)
+        } else if (!wi_resident_switch.isOn && antlerless_tag_switch.isOn) {
+            // if nonresident and extra antlerless tags
+            total_cost = total_cost + ((num_antlerless_tags_ctrl.selectedSegmentIndex + 1) * 20)
+        }
+    
         total_cost_label.text = "$" + String(total_cost) + ".00"
         
     }
